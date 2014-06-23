@@ -1,0 +1,45 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'war'
+
+
+sourceCompatibility = 1.5
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart', 'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+    compile group: 'com.datastax.cassandra', name: 'cassandra-driver-core', version: '2.0.2'
+    compile group: 'org.codehaus.jackson', name: 'jackson-xc', version: '1.9.13'
+    compile group: 'org.springframework', name: 'spring-beans', version: '3.2.4.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context', version: '3.2.4.RELEASE'
+    compile group: 'org.springframework', name: 'spring-core', version: '3.2.4.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version: '3.2.4.RELEASE'
+    compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.0-m01'
+    compile group: 'org.apache.cxf', name: 'cxf-rt-frontend-jaxws', version: '2.2.3'
+    compile group: 'org.apache.cxf', name: 'cxf-rt-transports-http', version: '2.2.3'
+    compile group: 'org.apache.cxf', name: 'cxf-rt-transports-http-jetty', version: '2.2.3'
+    compile group: 'org.apache.cxf', name: 'cxf-bundle-jaxrs', version: '2.2.3'
+    compile group: 'org.codehaus.jackson', name: 'jackson-jaxrs', version: '1.1.1'
+ 
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- Spring context file to inject cql statements -->
+	<bean id="cacheProp" class="com.impetus.eej2.cache.properties.EIECacheProperties">
+		<property name="insertStatement">
+			<value>
+	<![CDATA[INSERT INTO demo.users (ID,COUNTRY_CODE,TN,MNC,MCC,SPID,CREATED_DT,UPDATED_DT,REQUEST_TYPE,RESPONSE_STRING,STATUS,IMSI,HLR,MSC,TN_TYPE) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")]]>
+			</value>
+		</property>
+		<property name="fetchStatement">
+			<value>
+	<![CDATA[SELECT * from neustar.eieCache  where rowId = ? ]]>
+
+			</value>
+		</property>
+	</bean>
+</beans>
